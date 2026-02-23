@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    @page {
+      size: A4;
+      margin: 20mm 15mm 20mm 15mm;
+
+      @bottom-center {
+        content: "Сторінка " counter(page) " з " counter(pages);
+        font-size: 10px;
+      }
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .logo img {
+      max-height: 70px;
+    }
+
+    .event-title {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    .report-title {
+      text-align: center;
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .event-subtitle {
+      text-align: center;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+    }
+
+    thead {
+      display: table-header-group;
+    }
+
+    th, td {
+      border: 1px solid #000;
+      padding: 4px;
+      font-size: 12px;
+    }
+
+    th {
+      background: #eee;
+    }
+
+    .class-block {
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+{% if event.logo %}
+<div class="logo">
+  <img src="{{ event.logo }}" />
+</div>
+{% endif %}
+
+<div class="event-title">
+  {{ event.title | safe }}
+</div>
+
+<div class="report-title">
+  {{ reportTitle }}
+</div>
+
+{% if event.subtitle %}
+<div class="event-subtitle">
+  {{ event.subtitle | safe }}
+</div>
+{% endif %}
+
+<div class="header-row">
+  <div>{{ event.location }}</div>
+  <div>{{ event.date }}</div>
+</div>
+
+{% block content %}{% endblock %}
+
+<div class="footer">
+  {{ event.footer }}
+</div>
+
+</body>
+</html>

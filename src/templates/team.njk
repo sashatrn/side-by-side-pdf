@@ -1,0 +1,49 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+<h2>Чоловіки</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Місце</th>
+      <th>Заклад</th>
+      <th>Бали</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t in men %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ t.club }}</td>
+      <td>{{ t.points }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<br/>
+
+<h2>Жінки</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Місце</th>
+      <th>Заклад</th>
+      <th>Бали</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t in women %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ t.club }}</td>
+      <td>{{ t.points }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

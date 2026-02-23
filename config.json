@@ -1,0 +1,13 @@
+{
+  "logging": {
+    "level": "info"
+  },
+  "genderMapping": {
+    "menPrefixes": ["M", "Ч", "Х"],
+    "womenPrefixes": ["W", "Ж", "Д"]
+  },
+  "teamRules": {
+    "menCount": 3,
+    "womenCount": 3
+  }
+}

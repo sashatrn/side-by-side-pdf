@@ -1,0 +1,61 @@
+import { Participant } from "../io/parseIof";
+import { renderTemplate } from "../render/templateEngine";
+import { formatDate } from "../utils/date";
+import { imageToBase64 } from "../utils/image";
+import path from "path";
+
+function formatTime(sec?: number) {
+  if (!sec) return "";
+  const h = Math.floor(sec / 3600);
+  const m = Math.floor((sec % 3600) / 60);
+  const s = sec % 60;
+  return `${h > 0 ? h + ":" : ""}${m
+    .toString()
+    .padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+}
+
+export function buildIndividualHtml(
+  participants: Participant[],
+  eventDate?: string,
+): string {
+  const byClass = new Map<string, Participant[]>();
+
+  for (const p of participants) {
+    if (!byClass.has(p.className)) {
+      byClass.set(p.className, []);
+    }
+    byClass.get(p.className)!.push(p);
+  }
+
+  const classes = [...byClass.keys()].sort().map((className) => ({
+    name: className,
+    participants: byClass
+      .get(className)!
+      .sort((a, b) => (a.position ?? 999) - (b.position ?? 999))
+      .map((p) => ({
+        position: p.position ?? "",
+        name: p.name,
+        club: p.club,
+        time: formatTime(p.timeSec),
+        points: p.points,
+      })),
+  }));
+  const l = path.resolve("src/assets/logo.png");
+
+  return renderTemplate("individual.njk", {
+    reportTitle: "Індивідуальний протокол",
+    event: {
+      title: `Всеукраїнські змагання "Пліч-о-пліч всеукраїнські шкільні ліги зі<br/>
+        спортивного орієнтування" серед учнів закладів загальної середньої<br/>
+        освіти "РАЗОМ ПЕРЕМОЖЕМО"`,
+      subtitle: `ЗАГАЛЬНОКОМАНДНИХ РЕЗУЛЬТАТІВ ЗМАГАНЬ<br/>
+        зі спортивного орієнтування ІІІ Етап Пліч-о-пліч, Всеукраїнських шкільних ліг<br/>
+        Житомирського району, 2025 р.`,
+      location: "м. Житомир",
+      date: formatDate(eventDate),
+      logo: imageToBase64(path.resolve("src/assets/logo.png")),
+      footer: "Житомирський район, 2025",
+    },
+    classes,
+  });
+}

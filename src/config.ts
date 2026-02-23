@@ -1,0 +1,55 @@
+import fs from "fs";
+import path from "path";
+
+export type AppConfig = {
+  logging: {
+    level: string;
+  };
+  genderMapping: {
+    menPrefixes: string[];
+    womenPrefixes: string[];
+  };
+  teamRules: {
+    menCount: number;
+    womenCount: number;
+  };
+};
+
+const defaultConfig: AppConfig = {
+  logging: {
+    level: "info",
+  },
+  genderMapping: {
+    menPrefixes: ["M", "Ч", "Х"],
+    womenPrefixes: ["W", "Ж", "Д"],
+  },
+  teamRules: {
+    menCount: 3,
+    womenCount: 3,
+  },
+};
+
+export function loadConfig(configPath?: string): AppConfig {
+  const filePath = configPath ?? path.resolve(process.cwd(), "config.json");
+
+  if (!fs.existsSync(filePath)) {
+    console.warn(`Config not found at ${filePath}. Using default config.`);
+    return defaultConfig;
+  }
+
+  const raw = fs.readFileSync(filePath, "utf-8");
+  const parsed = JSON.parse(raw);
+
+  return {
+    ...defaultConfig,
+    ...parsed,
+    genderMapping: {
+      ...defaultConfig.genderMapping,
+      ...parsed.genderMapping,
+    },
+    teamRules: {
+      ...defaultConfig.teamRules,
+      ...parsed.teamRules,
+    },
+  };
+}
