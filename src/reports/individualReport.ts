@@ -2,6 +2,7 @@ import { Participant } from "../io/parseIof";
 import { renderTemplate } from "../render/templateEngine";
 import { formatDate } from "../utils/date";
 import { imageToBase64 } from "../utils/image";
+import { loadConfig } from "../config";
 import path from "path";
 
 function formatTime(sec?: number) {
@@ -16,7 +17,7 @@ function formatTime(sec?: number) {
 
 export function buildIndividualHtml(
   participants: Participant[],
-  eventDate?: string,
+  eventDate: Date,
 ): string {
   const byClass = new Map<string, Participant[]>();
 
@@ -40,7 +41,8 @@ export function buildIndividualHtml(
         points: p.points,
       })),
   }));
-  const l = path.resolve("src/assets/logo.png");
+
+  const config = loadConfig();
 
   return renderTemplate("individual.njk", {
     reportTitle: "Індивідуальний протокол",
@@ -49,13 +51,13 @@ export function buildIndividualHtml(
         спортивного орієнтування" серед учнів закладів загальної середньої<br/>
         освіти "РАЗОМ ПЕРЕМОЖЕМО"`,
       subtitle: `ЗАГАЛЬНОКОМАНДНИХ РЕЗУЛЬТАТІВ ЗМАГАНЬ<br/>
-        зі спортивного орієнтування ІІІ Етап Пліч-о-пліч, Всеукраїнських шкільних ліг<br/>
-        Житомирського району, 2025 р.`,
-      location: "м. Житомир",
+        зі спортивного орієнтування ${config.reportHeader.stage} Пліч-о-пліч, Всеукраїнських шкільних ліг<br/>
+        ${config.reportHeader.region_of}, ${formatDate(eventDate, "yyyy")} р.`,
+      location: config.reportHeader.location,
       date: formatDate(eventDate),
       logo: imageToBase64(path.resolve("src/assets/logo.png")),
-      footer: "Житомирський район, 2025",
     },
+    officials: config.officials,
     classes,
   });
 }

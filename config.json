@@ -9,5 +9,14 @@
   "teamRules": {
     "menCount": 3,
     "womenCount": 3
+  },
+  "reportHeader": {
+    "stage": "ІІІ Етап",
+    "region_of": "Житомирського району",
+    "location": "м. Житомир"
+  },
+  "officials": {
+    "chiefJudge": "Трухній І.В.",
+    "chiefSecretary": "Трухній О.А."
   }
 }

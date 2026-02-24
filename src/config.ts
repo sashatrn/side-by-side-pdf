@@ -13,6 +13,15 @@ export type AppConfig = {
     menCount: number;
     womenCount: number;
   };
+  reportHeader: {
+    stage: string;
+    region_of: string;
+    location: string;
+  };
+  officials: {
+    chiefJudge: string;
+    chiefSecretary: string;
+  };
 };
 
 const defaultConfig: AppConfig = {
@@ -26,6 +35,15 @@ const defaultConfig: AppConfig = {
   teamRules: {
     menCount: 3,
     womenCount: 3,
+  },
+  reportHeader: {
+    stage: "ІІІ Етап",
+    region_of: "Житомирського району",
+    location: "м. Житомир",
+  },
+  officials: {
+    chiefJudge: "Іваненко І.В.",
+    chiefSecretary: "Петренко О.А.",
   },
 };
 

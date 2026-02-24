@@ -19,7 +19,11 @@ async function main(): Promise<void> {
   logger.info({ file: inputPath }, "Reading XML file");
 
   const xml = fs.readFileSync(inputPath, "utf-8");
-  const { participants, eventDate } = parseIof(xml);
+  let { participants, eventDate } = parseIof(xml);
+  if (!eventDate) {
+    logger.warn("Event date not found in IOF XML. Defaulting to current date.");
+    eventDate = new Date();
+  }
 
   logger.info(
     { count: participants.length },
@@ -37,7 +41,7 @@ async function main(): Promise<void> {
 
   const teamResults = computeTeamResults(participants, config, logger);
 
-  const teamHtml = buildTeamHtml(teamResults);
+  const teamHtml = buildTeamHtml(teamResults, eventDate);
   await htmlToPdf(teamHtml, "team.pdf");
 
   logger.info("Team PDF generated");

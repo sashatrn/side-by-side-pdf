@@ -1,7 +1,8 @@
 import { XMLParser } from "fast-xml-parser";
+import { parseIsoDate } from "../utils/date";
 
 export type ParsedIof = {
-  eventDate?: string;
+  eventDate?: Date;
   participants: Participant[];
 };
 
@@ -23,7 +24,7 @@ export function parseIof(xml: string): ParsedIof {
 
   const json = parser.parse(xml);
 
-  const eventDate = json?.ResultList?.Event?.StartTime?.Date;
+  const eventDate = parseIsoDate(json?.ResultList?.Event?.StartTime?.Date);
 
   const classResults = json.ResultList.ClassResult;
   const classes = Array.isArray(classResults) ? classResults : [classResults];
