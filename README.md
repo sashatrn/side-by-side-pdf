@@ -7,12 +7,20 @@ CLI-інструмент для перетворення результатів 
 
 Результати в протоколах розраховуються згідно правил національного проекту Пліч-о-пліч
 
-## Вимоги для розробки
+## Встановлення додатку
+
+1. Встановіть [Node.js](https://nodejs.org/en/download)
+1. Відкрийте термаінал (командний рядок)
+1. Встановіть Playwright Chromium `npx playwright install chromium`
+1. Встановіть додаток `npm install -g side-by-side-pdf`
+
+## Запуск додатку
+
+1. Відкрийте командний рядок Windows
+1. Виконайте `side-by-side-pdf <results.xml>`, де `<results.xml>` - IOF XML файл результатів.
+
+## Вимоги до проекту
 
 - Node.js 18+
+- Playwright Chromium
 - npm
-
-## Встановлення
-
-```bash
-npm install
