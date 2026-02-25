@@ -43,6 +43,8 @@ export function buildIndividualHtml(
   }));
 
   const config = loadConfig();
+  const logo1Path = path.resolve(__dirname, "../assets/logo1.png");
+  const logo2Path = path.resolve(__dirname, "../assets/logo2.png");
 
   return renderTemplate("individual.njk", {
     reportTitle: "Індивідуальний протокол",
@@ -55,8 +57,8 @@ export function buildIndividualHtml(
         ${config.reportHeader.region_of}, ${formatDate(eventDate, "yyyy")} р.`,
       location: config.reportHeader.location,
       date: formatDate(eventDate),
-      logo1: imageToBase64(path.resolve("src/assets/logo1.png")),
-      logo2: imageToBase64(path.resolve("src/assets/logo2.png")),
+      logo1: imageToBase64(logo1Path),
+      logo2: imageToBase64(logo2Path),
     },
     officials: config.officials,
     classes,

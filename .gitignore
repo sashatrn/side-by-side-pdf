@@ -3,5 +3,6 @@ dist
 .vscode
 
 *.pdf
+*.tgz
 .env
 .DS_Store
