@@ -6,10 +6,6 @@
     "menPrefixes": ["M", "Ч", "Х"],
     "womenPrefixes": ["W", "Ж", "Д"]
   },
-  "teamRules": {
-    "menCount": 3,
-    "womenCount": 3
-  },
   "reportHeader": {
     "stage": "ІІІ Етап",
     "region_of": "Житомирського району",
