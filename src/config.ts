@@ -48,6 +48,10 @@ const defaultConfig: AppConfig = {
 };
 
 export function loadConfig(configPath?: string): AppConfig {
+  if (configPath) {
+    console.log(`Loading config from ${configPath}`);
+  }
+  
   const filePath = configPath ?? path.resolve(process.cwd(), "config.json");
 
   if (!fs.existsSync(filePath)) {
