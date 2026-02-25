@@ -21,12 +21,22 @@
       padding: 0;
     }
 
-    .logo {
+    .logo1 {
+      position: absolute;
+      left: 0;
+    }
+
+    .logo1 img {
+      height: 20mm;
+      width: auto;
+    }
+
+    .logo2 {
       position: absolute;
       right: 0;
     }
 
-    .logo img {
+    .logo2 img {
       height: 20mm;
       width: auto;
     }
@@ -94,9 +104,15 @@
 </head>
 <body>
 
-{% if event.logo %}
-<div class="logo">
-  <img src="{{ event.logo }}" alt="Logo" />
+{% if event.logo1 %}
+<div class="logo1">
+  <img src="{{ event.logo1 }}" alt="Logo1" />
+</div>
+{% endif %}
+
+{% if event.logo2 %}
+<div class="logo2">
+  <img src="{{ event.logo2 }}" alt="Logo2" />
 </div>
 {% endif %}
 
