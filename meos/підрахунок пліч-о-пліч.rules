@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<MeOSResultCalculationSet>
+<Name>Пліч-о-пліч</Name>
+<Tag>result-C8E4-78E1-1</Tag>
+<Origin>!TESTTÄVLING (2024-02-13)</Origin>
+<Date>2024-02-25 15:54:20</Date>
+<Rule name="RunnerPoints">
+<Method>if (Place == 0)&#13;&#10;  return 1;&#13;&#10;if (Place &lt;= 4)&#13;&#10;  return 100 - (Place - 1)*5;&#13;&#10;if (Place &gt; 88)&#13;&#10;  return 0;&#13;&#10;&#13;&#10;return 89 - Place;</Method>
+</Rule>
+<Rule name="TeamPoints">
+<Method>pointSum = 0;&#13;&#10;for (i=0; i&lt;RunnerPoints.size(); i++) {&#13;&#10;  pointSum = pointSum + RunnerPoints[i]&#13;&#10;}&#13;&#10;return pointSum;</Method>
+</Rule>
+<Rule name="TeamStatus">
+<Method>return StatusOK;</Method>
+</Rule>
+</MeOSResultCalculationSet>

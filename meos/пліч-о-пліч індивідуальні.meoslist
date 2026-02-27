@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<MeOSListDefinition version="5.0">
+<ListName>Пліч-о-пліч індивідуальні</ListName>
+<ListOrigin>!TESTTÄVLING (2024-02-17)</ListOrigin>
+<UID>A1606608550113477565B1544753207</UID>
+<SortOrder>ClassResult</SortOrder>
+<ListType>Runner</ListType>
+<SubListType>None</SubListType>
+<ResultModule>result-C8E4-78E1-1</ResultModule>
+<MeOSResultCalculationSet>
+<Name>Пліч-о-пліч</Name>
+<Tag>result-C8E4-78E1-1</Tag>
+<Origin>!TESTTÄVLING (2024-02-13)</Origin>
+<Date>2026-02-27 14:07:20</Date>
+<Rule name="RunnerPoints">
+<Method>if (Place == 0)&#13;&#10;  return 1;&#13;&#10;if (Place &lt;= 4)&#13;&#10;  return 100 - (Place - 1)*5;&#13;&#10;if (Place &gt; 88)&#13;&#10;  return 0;&#13;&#10;&#13;&#10;return 89 - Place;</Method>
+</Rule>
+<Rule name="TeamPoints">
+<Method>pointSum = 0;&#13;&#10;for (i=0; i&lt;RunnerPoints.size(); i++) {&#13;&#10;  pointSum = pointSum + RunnerPoints[i]&#13;&#10;}&#13;&#10;return pointSum;</Method>
+</Rule>
+<Rule name="TeamStatus">
+<Method>return StatusOK;</Method>
+</Rule>
+</MeOSResultCalculationSet>
+<Filter name="FilterPrelResult"/>
+<Filter name="FilterNoCancel"/>
+<HeadFont scale="100" above="0">arial</HeadFont>
+<SubHeadFont scale="100" above="0">arial</SubHeadFont>
+<ListFont scale="100" above="0">arial</ListFont>
+<SubListFont scale="100" above="0">arial</SubListFont>
+<Head>
+<Line>
+<Block Type="CmpName">
+<Text>Resultat - X</Text>
+<ResultModule>result-C8E4-78E1-1</ResultModule>
+<Align BlockAlign="true">None</Align>
+</Block>
+</Line>
+<Line>
+<Block Type="CmpDate">
+<ResultModule>result-C8E4-78E1-1</ResultModule>
+<Align BlockAlign="true">None</Align>
+</Block>
+</Line>
+</Head>
+<SubHead>
+<Line>
+<Block Type="ClassName">
+<ResultModule>result-C8E4-78E1-1</ResultModule>
+<Align BlockAlign="true">None</Align>
+</Block>
+<Block Type="ClassResultFraction">
+<ResultModule>result-C8E4-78E1-1</ResultModule>
+<Align BlockAlign="true">None</Align>
+</Block>
+<Block Type="String">
+<Text>Tid</Text>
+<ResultModule>result-C8E4-78E1-1</ResultModule>
+<Align BlockAlign="true">None</Align>
+</Block>
+<Block Type="String">
+<Text>Efter</Text>
+<ResultModule>result-C8E4-78E1-1</ResultModule>
+<Align BlockAlign="true">None</Align>
+</Block>
+<Block Type="String">
+<Text>Бали</Text>
+<ResultModule>result-C8E4-78E1-1</ResultModule>
+<Align BlockAlign="true">None</Align>
+</Block>
+</Line>
+</SubHead>
+<List>
+<Line>
+<Block Type="RunnerPlace">
+<ResultModule>result-C8E4-78E1-1</ResultModule>
+<Align BlockAlign="true">None</Align>
+<TextAdjust>Right</TextAdjust>
+</Block>
+<Block Type="RunnerName">
+<ResultModule>result-C8E4-78E1-1</ResultModule>
+<Align BlockAlign="true">ClassName</Align>
+</Block>
+<Block Type="RunnerClub">
+<ResultModule>result-C8E4-78E1-1</ResultModule>
+<Align BlockAlign="true">None</Align>
+</Block>
+<Block Type="RunnerTimeStatus">
+<ResultModule>result-C8E4-78E1-1</ResultModule>
+<Align BlockAlign="true">Tid</Align>
+</Block>
+<Block Type="RunnerTimeAfter">
+<ResultModule>result-C8E4-78E1-1</ResultModule>
+<Align BlockAlign="true">Efter</Align>
+</Block>
+<Block Type="RunnerRogainingPointTotal">
+<ResultModule>result-C8E4-78E1-1</ResultModule>
+<Align BlockAlign="true">None</Align>
+<BlockWidth>30</BlockWidth>
+</Block>
+</Line>
+</List>
+<SubList>
+</SubList>
+</MeOSListDefinition>

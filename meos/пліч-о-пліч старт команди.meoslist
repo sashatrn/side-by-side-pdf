@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<MeOSListDefinition version="3.9">
+<ListName>Стартовий команди</ListName>
+<ListOrigin>Пліч-о-пліч (Житомирська ОТГ) (2024-03-15)</ListOrigin>
+<UID>A5449912618971294538B4031866291</UID>
+<SortOrder>ClassStartTime</SortOrder>
+<ListType>ClubRunner</ListType>
+<SubListType>Runner</SubListType>
+<HideLegSelection>1</HideLegSelection>
+<HeadFont scale="100" above="0">arial</HeadFont>
+<SubHeadFont scale="140" above="0">arial</SubHeadFont>
+<ListFont scale="100" above="0">arial</ListFont>
+<SubListFont scale="100" above="0">arial</SubListFont>
+<Head>
+<Line>
+<Block Type="CmpName">
+<Align BlockAlign="true">None</Align>
+</Block>
+</Line>
+<Line>
+<Block Type="CmpDate">
+<Align BlockAlign="true">None</Align>
+</Block>
+</Line>
+</Head>
+<SubHead>
+<Line>
+<Block Type="ClubName">
+<Align BlockAlign="true">None</Align>
+</Block>
+</Line>
+</SubHead>
+<List>
+<Line>
+<Block Type="RunnerStart">
+<Align BlockAlign="true">None</Align>
+</Block>
+<Block Type="RunnerCourse">
+<Align BlockAlign="true">None</Align>
+</Block>
+<Block Type="RunnerName">
+<Align BlockAlign="true">None</Align>
+</Block>
+<Block Type="RunnerCard">
+<Align BlockAlign="true">None</Align>
+</Block>
+<Block Type="RunnerStartNo">
+<Align BlockAlign="true">None</Align>
+</Block>
+</Line>
+</List>
+<SubList>
+</SubList>
+</MeOSListDefinition>
